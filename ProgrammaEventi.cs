@@ -28,7 +28,7 @@ namespace GestoreEventi
 
             foreach (Evento evento in eventi)
             {
-                if(evento.getData() == data)
+                if (evento.getData() == data)
                 {
                     filteredEvents.Add(evento);
                 }
@@ -39,6 +39,34 @@ namespace GestoreEventi
             }
 
             return filteredEvents;
+        }
+
+
+        public static string StampaListaEventi(List<Evento> listaEventi)
+        {
+            string result = "";
+
+            foreach(Evento evento in listaEventi)
+            {
+                result += $"{evento.getTitolo()}" + " - " + $"{evento.getData()}";
+            }
+
+            return result;
+        }
+
+        public int NumeroEventi()
+        {
+            return eventi.Count;
+        }
+
+        public void SvuotaEventi()
+        {
+            eventi.Clear();
+        }
+
+        public void StampaEventi(List<Evento> listaEventi)
+        {
+            StampaListaEventi(listaEventi);
         }
     }
 }
