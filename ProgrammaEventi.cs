@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Environment;
 
 namespace GestoreEventi
 {
@@ -20,6 +21,11 @@ namespace GestoreEventi
         public void AggiungiEvento(Evento evento)
         {
             eventi.Add(evento);
+        }
+
+        public List<Evento> getEventi()
+        {
+            return eventi;
         }
 
         public List<Evento> TrovaEvento(DateTime data)
@@ -48,7 +54,7 @@ namespace GestoreEventi
 
             foreach(Evento evento in listaEventi)
             {
-                result += $"{evento.getTitolo()}" + " - " + $"{evento.getData()}";
+                result += $"{evento.getTitolo()}" + $"{evento.getData()}" + NewLine;
             }
 
             return result;
@@ -64,9 +70,9 @@ namespace GestoreEventi
             eventi.Clear();
         }
 
-        public void StampaEventi(List<Evento> listaEventi)
+        public string StampaEventi(List<Evento> listaEventi)
         {
-            StampaListaEventi(listaEventi);
+            return StampaListaEventi(listaEventi);
         }
     }
 }
